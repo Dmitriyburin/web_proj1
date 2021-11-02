@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>free-icon-feather-67944.png</file>
+  </qresource>
+</RCC>
