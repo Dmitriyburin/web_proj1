@@ -9,7 +9,7 @@ from Main_window import MyWidget
 from ViewOlympWindow import MyOlymp
 from CreateOlympWindow import CreateOlymp, CreateOlympWithSubject
 
-from classes import OlympiadsAll, Olympiad
+from classes import OlympiadsAll
 
 
 class MainWindow(QMainWindow):
