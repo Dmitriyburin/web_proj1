@@ -17,6 +17,8 @@ class CreateOlymp(QMainWindow):
 
         self.dateEdit.setCalendarPopup(True)
         self.dateEdit.setMinimumDate(QDate.currentDate())
+        self.classEdit.setMinimum(1)
+        self.classEdit.setMaximum(11)
 
     def ui(self):
         uic.loadUi('../ui_files/new_olymp.ui', self)

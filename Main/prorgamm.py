@@ -51,8 +51,9 @@ class MainWindow(QMainWindow):
                 self.show_create_olymp_window(obj.text())
         return super(QMainWindow, self).eventFilter(obj, e)
 
-    def show_olymp_window(self, olympiad):
-        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self)
+    def show_olymp_window(self, olympiad: Olympiad):
+        subject = olympiad.subject
+        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
         self.olymp_view_w.show()
         self.olympiadsAll.update_all_olymp_dict()
