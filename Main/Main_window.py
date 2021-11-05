@@ -16,6 +16,7 @@ class MyWidget(QMainWindow):
         self.program = program
         self.current_olymps = self.olympiadsAll.all_olymp_dict.copy()
         self.searchButton.clicked.connect(self.search)
+        self.classEdit.setMaximum(11)
 
         self.widget = QWidget(self)  # для корректного отображения олимп. на scrollArea
         self.layout = QVBoxLayout(self)  # для корректного отображения олимп. на scrollArea

@@ -21,3 +21,5 @@ class Registration(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('../ui_files/registration.ui', self)
+        self.classEdit.setMinimum(1)
+        self.classEdit.setMaximum(11)
