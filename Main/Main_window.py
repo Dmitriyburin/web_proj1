@@ -115,8 +115,7 @@ class MyWidget(QMainWindow):
         self.program.clicked_for_olymp()
         # if s
 
-    def add_olymp(self):
-        pass
+
 
 
 def except_hook(cls, exception, traceback):

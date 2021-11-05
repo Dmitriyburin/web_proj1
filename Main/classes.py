@@ -42,6 +42,7 @@ class OlympiadsAll:
             connection.commit()
             connection.close()
         print(self.all_olymp_dict)
+        self.update_all_olymp_dict()
         # self.add_olymp(self.getConnection('main'), 'ГЕОМЕТРИЯ', 'ЖИЗНЬ', '9', 'круто', '90', 'ссылка', '14')
 
     def getConnection(self, name_database):
@@ -88,6 +89,7 @@ class OlympiadsAll:
                 Olympiad(self.getId(self.getConnection('main')) + 1, olymp.subject, olymp.title, olymp.sch_class,
                          olymp.des,
                          olymp.dur, olymp.link, olymp.date)]
+        self.update_all_olymp_dict()
         self.add_olymp_db(self.getConnection('main'), olymp)
 
     def delete_olymp(self, olympiad: Olympiad):
@@ -99,6 +101,7 @@ class OlympiadsAll:
         for subject, olymps in self.all_olymp_dict.copy().items():
             if len(olymps) == 0:
                 del self.all_olymp_dict[subject]
+        self.all_olymp_dict = dict(sorted(self.all_olymp_dict.items()))
 
     def getId(self, con):
         try:
@@ -112,9 +115,6 @@ class OlympiadsAll:
         finally:
             con.commit()
             con.close()
-
-    def update_base_date(self):
-        pass
 
 
 class User:

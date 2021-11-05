@@ -1,4 +1,5 @@
 import sys
+import datetime
 
 from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame, QWidget
 from PyQt5.QtWidgets import QScrollArea, QLabel
@@ -8,6 +9,7 @@ from PyQt5.QtGui import QMouseEvent
 from Main_window import MyWidget
 from ViewOlympWindow import MyOlymp
 from CreateOlympWindow import CreateOlymp, CreateOlympWithSubject
+from LoginWindow import Login
 
 from classes import OlympiadsAll, Olympiad
 
@@ -24,6 +26,7 @@ class MainWindow(QMainWindow):
         self.main_w = MyWidget(self.olympiadsAll, self)
         self.main_w.show()
         self.main_w.addButton.clicked.connect(self.show_create_olymp_window_with_subj)
+        self.main_w.loginButton.clicked.connect(self.show_login_window)
         self.clicked_for_olymp()
 
     def clicked_for_olymp(self):
@@ -56,6 +59,7 @@ class MainWindow(QMainWindow):
         self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
         self.olymp_view_w.show()
+        self.passed_olymp(olympiad, self.olymp_view_w)
         self.olympiadsAll.update_all_olymp_dict()
 
     def show_create_olymp_window(self, subject):
@@ -67,6 +71,15 @@ class MainWindow(QMainWindow):
         self.create_olymp_w = CreateOlympWithSubject(subject, self.olympiadsAll, self.main_w, self)
         self.create_olymp_w.setWindowModality(Qt.ApplicationModal)
         self.create_olymp_w.show()
+
+    def show_login_window(self):
+        self.login_w = Login()
+        self.login_w.setWindowModality(Qt.ApplicationModal)
+        self.login_w.show()
+
+    def passed_olymp(self, olympiad, win):
+        if datetime.date.today() > olympiad.date:
+            win.label_passed.setText('Олимпиада завершена')
 
 
 def except_hook(cls, exception, traceback):
