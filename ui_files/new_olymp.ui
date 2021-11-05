@@ -255,9 +255,9 @@ border-radius: 30px;
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>350</y>
+     <y>339</y>
      <width>361</width>
-     <height>20</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="orientation">

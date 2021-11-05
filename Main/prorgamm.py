@@ -21,7 +21,7 @@ class MainWindow(QMainWindow):
         self.show_main_window()
 
     def show_main_window(self):
-        self.main_w = MyWidget(self.olympiadsAll)
+        self.main_w = MyWidget(self.olympiadsAll, self)
         self.main_w.show()
         self.main_w.addButton.clicked.connect(self.show_create_olymp_window_with_subj)
         self.clicked_for_olymp()
@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
                 for count, olymp in enumerate(frame.findChildren(QLabel)):
                     if count == 0:
                         self.flag_subject = True
-                        self.current_olymps = self.main_w.olympiadsAll.all_olymp_dict[olymp.text()]
+                        self.current_olymps = self.main_w.current_olymps[olymp.text()]
 
                     else:
                         self.current_olymp = self.current_olymps[count - 1]

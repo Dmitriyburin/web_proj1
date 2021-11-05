@@ -44,7 +44,7 @@ QPushButton:hover {
     <string>Искать</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="titleEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -58,7 +58,7 @@ QPushButton:hover {
 border-radius: 10px;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="subjectEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -118,7 +118,7 @@ border-radius: 10px;</string>
     <string>Предмет</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="classEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
