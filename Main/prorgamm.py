@@ -11,7 +11,7 @@ from ViewOlympWindow import MyOlymp
 from CreateOlympWindow import CreateOlymp, CreateOlympWithSubject
 from LoginWindow import Login
 
-from classes import OlympiadsAll, Olympiad
+from classes import OlympiadsAll, Olympiad, UsersAll
 
 
 class MainWindow(QMainWindow):
@@ -19,6 +19,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.setWindowTitle('MainWindow')
         self.olympiadsAll = OlympiadsAll()
+        self.usersAll = UsersAll()
+        print(self.usersAll.user_all)
         self.program = self
         self.show_main_window()
 
@@ -73,7 +75,7 @@ class MainWindow(QMainWindow):
         self.create_olymp_w.show()
 
     def show_login_window(self):
-        self.login_w = Login()
+        self.login_w = Login(self.usersAll, self.main_w)
         self.login_w.setWindowModality(Qt.ApplicationModal)
         self.login_w.show()
 

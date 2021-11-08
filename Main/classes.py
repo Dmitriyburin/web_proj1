@@ -4,6 +4,27 @@ from mysql.connector import connect, Error
 import datetime
 
 
+class User:
+    def __init__(self):
+        self.status = 'unregistered'
+
+
+class UserRegistered(User):
+    def __init__(self, id, name, password, class_count):
+        super().__init__()
+        self.id = id
+        self.name = name
+        self.password = password
+        self.class_count = class_count
+        self.status = 'registered'
+
+
+class Admin(UserRegistered):
+    def __init__(self, id, name, password, class_count):
+        super().__init__(id, name, password, class_count)
+        self.status = 'admin'
+
+
 class Olympiad:
     def __init__(self, id: int, subject: str, title: str, school_class: int,
                  description: str, duration: int, link: str, date: datetime.date):
@@ -117,21 +138,54 @@ class OlympiadsAll:
             con.close()
 
 
-class User:
+class UsersAll:
     def __init__(self):
-        self.status = 'unregistered'
+        self.user_all = {}
 
+        # Подключиться к базе данных
+        connection = self.getConnection('main')
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT * FROM users')
+                for user in cursor.fetchall():
+                    self.user_all[user['name']] = [
+                            UserRegistered(user['id'], user['name'], user['password'], user['class'])]
+        finally:
+            # Закрыть соединение (Close connection).
+            connection.commit()
+            connection.close()
 
-class UserRegistered(User):
-    def __init__(self):
-        super().__init__()
-        self.status = 'registered'
+    def add_user_db(self, con, user: UserRegistered):
+        try:
+            with con.cursor() as cursor:
+                cursor.execute(
+                    "INSERT INTO `users` VALUES"
+                    " (NULL, '{}', '{}', '{}')"
+                    "".format(user.name, user.password, user.class_count))
+                cursor.execute('SELECT * FROM olympiads')
+                print('\nДОБАВЛЕНО\n')
+        finally:
+            con.commit()
+            con.close()
 
+    def add_user(self, user: UserRegistered):
+        self.user_all[user.name] = [
+            UserRegistered(user.id, user.name, user.password, user.class_count)]
+        self.add_user_db(self.getConnection('main'), user)
 
-class Admin(UserRegistered):
-    def __init__(self):
-        super().__init__()
-        self.status = 'admin'
+    # def delete_olymp(self, user: User):
+    #     self.all_olymp_dict[olympiad.subject].pop(self.all_olymp_dict[olympiad.subject].index(olympiad))
+    #     self.update_all_olymp_dict()
+    #     self.delete_olymp_db(self.getConnection('main'), olympiad)
+
+    def getConnection(self, name_database):
+        connection = pymysql.connect(host='localhost',
+                                     user='root',
+                                     password='admin',
+                                     db=name_database,
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        return connection
 
 # cur.execute('CREATE TABLE IF NOT EXISTS olympiads(subject text, title text, school_class integer,'
 #             'description text, duration integer, link text, count int)')

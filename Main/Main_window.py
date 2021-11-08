@@ -30,7 +30,7 @@ class MyWidget(QMainWindow):
             max_height_frame = len(value) * 30 + 30
             frame = QFrame(self)
             frame.setStyleSheet(f'background-color: #0084ff; border-radius: 25px; '
-                                f'max-height: {max_height_frame}; max-width: 400px')
+                                f'max-height: {max_height_frame}; max-width: 500px')
             layout_frame = QVBoxLayout(self)
             subject = QLabel(subject)
             subject = self.styleSheet_olymp(subject, 'subject')
@@ -41,6 +41,9 @@ class MyWidget(QMainWindow):
 
             frame.setLayout(layout_frame)
             self.layout.addWidget(frame)
+        self.layout.setContentsMargins(10, 10, 0, 400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
+        print(400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
+        print('смениласб')
         self.widget.setLayout(self.layout)
         self.scrollArea.setWidget(self.widget)
 
@@ -115,8 +118,6 @@ class MyWidget(QMainWindow):
             self.update_olymp(self.current_olymps)
         self.program.clicked_for_olymp()
         # if s
-
-
 
 
 def except_hook(cls, exception, traceback):

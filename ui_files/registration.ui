@@ -55,7 +55,7 @@
     <string>Пароль</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="loginEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -69,7 +69,7 @@
 border-radius: 10px;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="passwordEdit">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -83,7 +83,7 @@ border-radius: 10px;</string>
 border-radius: 10px;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="registrationButton">
    <property name="geometry">
     <rect>
      <x>20</x>

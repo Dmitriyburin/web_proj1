@@ -1,7 +1,7 @@
 import datetime
 from PyQt5 import uic
 from PyQt5.QtWidgets import QSpinBox, QPlainTextEdit
-from PyQt5.QtWidgets import QMainWindow, QTextEdit
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QMessageBox
 from PyQt5.QtCore import QDate
 from classes import *
 
@@ -41,16 +41,20 @@ class CreateOlymp(QMainWindow):
                 self.empty_field_style(field, False)
             else:
                 self.empty_field_style(field, True)
+        try:
+            if flag:
+                olymp = Olympiad(0, self.subject, self.titleEdit.text(), int(self.classEdit.text()),
+                                 self.descrPlainEdit.toPlainText(), int(self.durPlainEdit.toPlainText()),
+                                 self.linkEdit.text(), date)
+                self.olympsAll.add_olymp(olymp)
+                self.main_w.current_olymps = self.olympsAll.all_olymp_dict.copy()
+                self.main_w.update_olymp(self.olympsAll.all_olymp_dict)  # обновление главного меню
+                self.program.clicked_for_olymp()  # привязка clicked на олимпиады
+                self.close()
+        except Exception:
+            QMessageBox.critical(self, 'Error', 'Введенные данные некорректны',
+                                 buttons=QMessageBox.Ok)
 
-        if flag:
-            olymp = Olympiad(0, self.subject, self.titleEdit.text(), int(self.classEdit.text()),
-                             self.descrPlainEdit.toPlainText(), int(self.durPlainEdit.toPlainText()),
-                             self.linkEdit.text(), date)
-            self.olympsAll.add_olymp(olymp)
-            self.main_w.current_olymps = self.olympsAll.all_olymp_dict.copy()
-            self.main_w.update_olymp(self.olympsAll.all_olymp_dict)  # обновление главного меню
-            self.program.clicked_for_olymp()  # привязка clicked на олимпиады
-            self.close()
 
     def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
         if not is_empty:
