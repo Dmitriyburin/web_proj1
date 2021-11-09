@@ -16,7 +16,28 @@ class UserRegistered(User):
         self.name = name
         self.password = password
         self.class_count = class_count
+        self.favorites_olymps = []
         self.status = 'registered'
+        # connection = self.getConnection('main')
+        # try:
+        #     with connection.cursor() as cursor:
+        #         cursor.execute('SELECT * FROM users')
+        #         users
+        #         for string in cursor.fetchall():
+        #             if string['id_user'] ==
+        # finally:
+        #     # Закрыть соединение (Close connection).
+        #     connection.commit()
+        #     connection.close()
+
+    def getConnection(self, name_database):
+        connection = pymysql.connect(host='localhost',
+                                     user='root',
+                                     password='admin',
+                                     db=name_database,
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        return connection
 
 
 class Admin(UserRegistered):
@@ -139,8 +160,9 @@ class OlympiadsAll:
 
 
 class UsersAll:
-    def __init__(self):
+    def __init__(self, olympsAll: OlympiadsAll):
         self.user_all = {}
+        self.olympsAll = olympsAll
         self.is_login = False
         # Подключиться к базе данных
         connection = self.getConnection('main')
@@ -150,6 +172,32 @@ class UsersAll:
                 for user in cursor.fetchall():
                     self.user_all[user['name']] = [
                         UserRegistered(user['id'], user['name'], user['password'], user['class'])]
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT name FROM users '
+                               'INNER JOIN participations ON users.id = participations.id_user;')
+                users = []
+                olymps = []
+                for name in cursor.fetchall():
+                    print(name)
+                    users.append(self.user_all[name['name']][0])
+                cursor.execute('SELECT * FROM olympiads '
+                               'INNER JOIN participations ON olympiads.id = participations.id_olymp;')
+                for olymp in cursor.fetchall():
+
+                    olymps_subject = self.olympsAll.all_olymp_dict[olymp['subject']]
+                    olymp_finish = None
+                    for ol in olymps_subject:
+                        if ol.id == olymp['id']:
+                            olymp_finish = ol
+                            break
+                    olymps.append(olymp_finish)
+                    print(olymp_finish.title)
+                self.user_fav_olymp_dict = {}
+                for i in range(len(users)):
+                    user = users[i]
+                    self.user_fav_olymp_dict[user] = olymps[i]
+                    user.favorites_olymps.append(olymps[i])
+
         finally:
             # Закрыть соединение (Close connection).
             connection.commit()
@@ -177,6 +225,29 @@ class UsersAll:
             con.commit()
             con.close()
 
+    def add_favorite_olymp(self, con, user: UserRegistered, olymp: Olympiad):
+        try:
+            with con.cursor() as cursor:
+                cursor.execute(
+                    "INSERT INTO `participations` VALUES"
+                    " (NULL, '{}', '{}')"
+                    "".format(user.id, olymp.id))
+                cursor.execute('SELECT * FROM olympiads')
+                print('\nДОБАВЛЕНО\n')
+        finally:
+            con.commit()
+            con.close()
+
+    def delete_favorite_olymp(self, con, user: UserRegistered, olymp: Olympiad):
+        try:
+            with con.cursor() as cursor:
+                cursor.execute('DELETE FROM participations WHERE id_user = "{}" AND id_olymp = "{}"'
+                               ''.format(user.id, olymp.id))
+                print('\nУДАЛЕНО\n')
+        finally:
+            con.commit()
+            con.close()
+
     def add_user(self, user: UserRegistered):
         self.user_all[user.name] = [
             UserRegistered(user.id, user.name, user.password, user.class_count)]
@@ -185,6 +256,9 @@ class UsersAll:
     def delete_user(self, user: UserRegistered):
         del self.user_all[user.name]
         self.delete_olymp_db(self.getConnection('main'), user)
+
+    def add_favorite_olymp_db(self, user: UserRegistered):
+        pass
 
     def getConnection(self, name_database):
         connection = pymysql.connect(host='localhost',

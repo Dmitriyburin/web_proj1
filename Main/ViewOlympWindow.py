@@ -2,7 +2,7 @@ import sys
 import sqlite3
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget, QMessageBox
 from PyQt5.QtCore import pyqtSignal, Qt, QObject, QDate
 
 from classes import *
@@ -10,30 +10,37 @@ from CreateOlympWindow import CreateOlymp
 
 
 class MyOlymp(QMainWindow):
-    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin):
+    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin, usersAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/view_olymp.ui', self)
         self.olympiad = olymp
         self.olympsAll = olympsAll
+        self.usersAll = usersAll
         self.main_w = main_w
         self.program = program
         self.subject = subject
         self.is_admin = is_admin
+        if self.main_w.current_user:
+            self.is_favorite = True if self.olympiad in self.main_w.current_user.favorites_olymps else False
+        else:
+            self.is_favorite = False
         self.updateDisplay()
         self.deleteButton.clicked.connect(self.delete_olymp)
         self.changeButton.clicked.connect(self.change_olymp)
+        self.favoritesButton.clicked.connect(self.add_favorite)
 
+        self.deleteButton.show()
+        self.changeButton.show()
+        self.favoritesButton.show()
         if not self.is_admin:
             self.deleteButton.hide()
             self.changeButton.hide()
-
-            self.setGeometry(100, 60, 457, 307)
-
-        else:
-            self.deleteButton.show()
-            self.changeButton.show()
+            self.setGeometry(100, 60, 457, 328)
+            if not self.main_w.current_user:
+                self.favoritesButton.hide()
+        elif self.is_admin:
             self.setGeometry(100, 60, 457, 406)
-
+        print(self.main_w.current_user.favorites_olymps)
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
@@ -45,6 +52,16 @@ class MyOlymp(QMainWindow):
         self.label_description.setText(self.olympiad.des)
         self.label_duration.setText(f'{self.olympiad.dur} минут')
         self.label_date.setText(self.olympiad.date.strftime('%d %B %Y'))
+        if self.is_favorite:
+            self.favoritesButton.setStyleSheet(
+                'QPushButton {background-color: rgb(255, 247, 0);border-radius: 7px;color: '
+                'rgb(0, 132, 255);border: 1px solid rgb(0, 132, 255);}'
+                'QPushButton:hover {background-color: rgb(255, 243, 175);}')
+        else:
+            self.favoritesButton.setStyleSheet(
+                'QPushButton {background-color: #fff;border-radius: 7px;color: '
+                'rgb(0, 132, 255);border: 1px solid rgb(0, 132, 255);}'
+                'QPushButton:hover {background-color: rgb(255, 243, 175);}')
 
     def delete_olymp(self):
         self.olympsAll.delete_olymp(self.olympiad)
@@ -58,6 +75,29 @@ class MyOlymp(QMainWindow):
         self.change_olymp_w = ChangeOlymp(self.olympiad, self.olympsAll, self.main_w, self.program, self.subject)
         self.change_olymp_w.setWindowModality(Qt.ApplicationModal)
         self.change_olymp_w.show()
+        self.close()
+
+    def add_favorite(self):
+        self.is_favorite = True if self.olympiad in self.main_w.current_user.favorites_olymps else False
+
+        msg = QMessageBox(self)
+        msg.setWindowTitle("Message Box")
+        msg.setIcon(QMessageBox.Question)
+        if not self.is_favorite:
+            self.main_w.current_user.favorites_olymps.append(self.olympiad)
+            self.is_favorite = True
+            self.usersAll.add_favorite_olymp(self.usersAll.getConnection('main'), self.main_w.current_user,
+                                             self.olympiad)
+            msg.setText("Олимпиада добавлена в избранные")
+        else:
+            self.main_w.current_user.favorites_olymps.pop(
+                self.main_w.current_user.favorites_olymps.index(self.olympiad))
+            self.is_favorite = False
+            self.usersAll.delete_favorite_olymp(self.usersAll.getConnection('main'), self.main_w.current_user,
+                                             self.olympiad)
+            msg.setText("Олимпиада удалена из избранных")
+        msg.show()
+
         self.close()
 
 

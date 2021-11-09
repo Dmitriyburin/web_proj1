@@ -19,7 +19,7 @@ class Login(QMainWindow):
         password = self.passwordEdit.text()
         if user_name in self.usersAll.user_all:
             if password == self.usersAll.user_all[user_name][0].password:
-                self.main_w.settings_login(user_name, self.usersAll)
+                self.main_w.settings_login(self.usersAll.user_all[user_name][0], self.usersAll)
                 self.close()
             else:
                 QMessageBox.critical(self, 'Error', 'Пароль неверный.',
@@ -69,7 +69,7 @@ class Registration(QMainWindow):
                                  buttons=QMessageBox.Ok)
         if flag:
             self.usersAll.add_user(UserRegistered(0, login, password, class_count))
-            self.main_w.settings_login(login, self.usersAll)
+            self.main_w.settings_login(self.usersAll.user_all[login][0], self.usersAll)
             self.close()
 
 

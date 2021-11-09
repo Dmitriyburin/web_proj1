@@ -12,7 +12,7 @@ class MyWidget(QMainWindow):
     def __init__(self, olympsAll, program, userAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/main.ui', self)
-        self.is_login = False
+        self.current_user = False
         self.is_admin = False
         self.olympiadsAll = olympsAll
         self.userAll = userAll
@@ -133,7 +133,7 @@ class MyWidget(QMainWindow):
 
     def settings_login(self, user_name: UserRegistered,
                        usersAll: UsersAll):  # настройка интерфейса после входа в аккаунт
-        self.current_user = usersAll.user_all[user_name][0]
+        self.current_user = usersAll.user_all[user_name.name][0]
         self.is_login = True
         if self.current_user.name == 'admin':
             self.addButton.show()
@@ -143,7 +143,7 @@ class MyWidget(QMainWindow):
         self.comboBox.setEnabled(True)
         self.confirmSettingsButton.clicked.connect(self.menu_login)
         self.loginButton.disconnect()
-        self.loginButton.setText(user_name)
+        self.loginButton.setText(user_name.name)
         # self.loginButton.clicked.connect(self.menu_login)
 
     def menu_login(self):

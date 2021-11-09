@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>457</width>
-    <height>307</height>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>310</y>
+     <y>320</y>
      <width>341</width>
      <height>23</height>
     </rect>
@@ -224,7 +224,7 @@ border-radius: 30px;
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>340</y>
+     <y>350</y>
      <width>341</width>
      <height>23</height>
     </rect>
@@ -321,6 +321,38 @@ QLabel:hover{
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="favoritesButton">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>280</y>
+     <width>341</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: #fff;
+	border-radius: 7px;
+	color: rgb(0, 132, 255);
+	border: 1px solid rgb(0, 132, 255);
+}
+
+QPushButton:hover {
+	background-color: rgb(255, 243, 175);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Добавить в избранное</string>
    </property>
   </widget>
  </widget>

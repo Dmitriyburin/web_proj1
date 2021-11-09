@@ -19,9 +19,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.setWindowTitle('MainWindow')
         self.olympiadsAll = OlympiadsAll()
-        self.usersAll = UsersAll()
+        self.usersAll = UsersAll(self.olympiadsAll)
         self.is_admin = False
-        print(self.usersAll.user_all)
         self.program = self
         self.show_main_window()
 
@@ -64,7 +63,8 @@ class MainWindow(QMainWindow):
 
     def show_olymp_window(self, olympiad: Olympiad):
         subject = olympiad.subject
-        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject, self.main_w.is_admin)
+        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject, self.main_w.is_admin,
+                                    self.usersAll)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
         self.olymp_view_w.show()
         self.passed_olymp(olympiad, self.olymp_view_w)

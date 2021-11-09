@@ -55,7 +55,6 @@ class CreateOlymp(QMainWindow):
             QMessageBox.critical(self, 'Error', 'Введенные данные некорректны',
                                  buttons=QMessageBox.Ok)
 
-
     def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
         if not is_empty:
             textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
@@ -74,4 +73,3 @@ class CreateOlympWithSubject(CreateOlymp):
     def click(self):
         self.subject = self.subjectEdit.text()
         self.save()
-
