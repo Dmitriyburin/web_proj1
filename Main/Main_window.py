@@ -146,7 +146,7 @@ class MyWidget(QMainWindow):
             self.restart()
         elif command == 'Удалить аккаунт':
             message = QMessageBox.warning(self, 'Осторожно', 'Вы уверены, что хотите удалить аккаунт?',
-                                QMessageBox.Yes | QMessageBox.No)
+                                          QMessageBox.Yes | QMessageBox.No)
             if message == QMessageBox.Yes:
                 self.delete_user()
                 self.restart()
@@ -158,6 +158,7 @@ class MyWidget(QMainWindow):
 
     def delete_user(self):
         self.userAll.delete_user(self.current_user)
+
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
