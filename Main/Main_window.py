@@ -62,6 +62,12 @@ class MyWidget(QMainWindow):
                     QLabel:hover {
                         color: #ababab;
                     }
+                    QToolTip { 
+                        color: #ffffff; 
+                        background-color: #2a82da; 
+                        border: 1px solid white; 
+                        border-radius: 0;
+                    }
                     """)
             return title_label
         if flag == 'subject':

@@ -47,6 +47,10 @@ class MainWindow(QMainWindow):
                     else:
                         self.current_olymp = self.current_olymps[count - 1]
                         self.olymp_label_class[olymp] = self.current_olymp
+                        olymp.setToolTip(f'Класс: {self.current_olymp.sch_class}\n'
+                                         f'Название: {self.current_olymp.title}\n'
+                                         f'Предмет: {self.current_olymp.subject}\n'
+                                         f'Продолжительность: {self.current_olymp.dur} минут')
                     olymp.installEventFilter(self)
 
     def eventFilter(self, obj, e):  # для подлкючения события clicked на QLabel
