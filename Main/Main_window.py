@@ -2,27 +2,33 @@ import sys
 import sqlite3
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QFrame, QScrollArea
+from PyQt5.QtWidgets import QApplication, QFrame, QMessageBox
 from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QWidget
-from PyQt5.QtCore import pyqtSignal, Qt, QObject
+from PyQt5.QtCore import pyqtSignal, Qt, QObject, QCoreApplication, QProcess
 from classes import *
 
 
 class MyWidget(QMainWindow):
-    def __init__(self, olympsAll, program):
+    def __init__(self, olympsAll, program, userAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/main.ui', self)
+        self.is_login = False
+        self.is_admin = False
         self.olympiadsAll = olympsAll
+        self.userAll = userAll
         self.program = program
         self.current_olymps = self.olympiadsAll.all_olymp_dict.copy()
         self.searchButton.clicked.connect(self.search)
+        self.comboBox.setEnabled(False)
+        self.addButton.hide()
         self.classEdit.setMaximum(11)
 
         self.widget = QWidget(self)  # для корректного отображения олимп. на scrollArea
         self.layout = QVBoxLayout(self)  # для корректного отображения олимп. на scrollArea
         self.update_olymp(self.current_olymps)
 
-    def update_olymp(self, olymp_dict: dict):
+    def update_olymp(self, olymp_dict: dict):  # обновление экрана с олимпиадами
+
         for i in reversed(range(self.layout.count())):  # удаление всех элементов layout
             self.layout.itemAt(i).widget().deleteLater()
 
@@ -47,7 +53,7 @@ class MyWidget(QMainWindow):
         self.widget.setLayout(self.layout)
         self.scrollArea.setWidget(self.widget)
 
-    def styleSheet_olymp(self, title_label: QLabel, flag):
+    def styleSheet_olymp(self, title_label: QLabel, flag):  # смена стиля для QLabel
         if flag == 'olymp':
             title_label.setStyleSheet("""
                     QLabel {
@@ -71,7 +77,7 @@ class MyWidget(QMainWindow):
                     """)
             return title_label
 
-    def search(self):
+    def search(self):  # фильтрация олимпиад
         title = self.titleEdit.text() if len(self.titleEdit.text()) != 0 else False
         sub = self.subjectEdit.text() if len(self.subjectEdit.text()) != 0 else False
         clas = self.classEdit.text() if int(self.classEdit.text()) != 0 else False
@@ -119,6 +125,39 @@ class MyWidget(QMainWindow):
         self.program.clicked_for_olymp()
         # if s
 
+    def settings_login(self, user_name: UserRegistered,
+                       usersAll: UsersAll):  # настройка интерфейса после входа в аккаунт
+        self.current_user = usersAll.user_all[user_name][0]
+        self.is_login = True
+        if self.current_user.name == 'admin':
+            self.addButton.show()
+            self.is_admin = True
+        else:
+            self.addButton.hide()
+        self.comboBox.setEnabled(True)
+        self.confirmSettingsButton.clicked.connect(self.menu_login)
+        self.loginButton.disconnect()
+        self.loginButton.setText(user_name)
+        # self.loginButton.clicked.connect(self.menu_login)
+
+    def menu_login(self):
+        command = self.comboBox.currentText()
+        if command == 'Выйти':
+            self.restart()
+        elif command == 'Удалить аккаунт':
+            message = QMessageBox.warning(self, 'Осторожно', 'Вы уверены, что хотите удалить аккаунт?',
+                                QMessageBox.Yes | QMessageBox.No)
+            if message == QMessageBox.Yes:
+                self.delete_user()
+                self.restart()
+
+    def restart(self):
+        QCoreApplication.quit()
+        status = QProcess.startDetached(sys.executable, sys.argv)
+        print(status)
+
+    def delete_user(self):
+        self.userAll.delete_user(self.current_user)
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)

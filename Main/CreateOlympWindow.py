@@ -74,4 +74,4 @@ class CreateOlympWithSubject(CreateOlymp):
     def click(self):
         self.subject = self.subjectEdit.text()
         self.save()
-        self.close()
+

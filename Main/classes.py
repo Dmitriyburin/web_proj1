@@ -141,7 +141,7 @@ class OlympiadsAll:
 class UsersAll:
     def __init__(self):
         self.user_all = {}
-
+        self.is_login = False
         # Подключиться к базе данных
         connection = self.getConnection('main')
         try:
@@ -149,7 +149,7 @@ class UsersAll:
                 cursor.execute('SELECT * FROM users')
                 for user in cursor.fetchall():
                     self.user_all[user['name']] = [
-                            UserRegistered(user['id'], user['name'], user['password'], user['class'])]
+                        UserRegistered(user['id'], user['name'], user['password'], user['class'])]
         finally:
             # Закрыть соединение (Close connection).
             connection.commit()
@@ -168,15 +168,23 @@ class UsersAll:
             con.commit()
             con.close()
 
+    def delete_olymp_db(self, con, user: UserRegistered):
+        try:
+            with con.cursor() as cursor:
+                cursor.execute('DELETE FROM users WHERE id = "{}"'.format(user.id))
+                print('\nУДАЛЕНО\n')
+        finally:
+            con.commit()
+            con.close()
+
     def add_user(self, user: UserRegistered):
         self.user_all[user.name] = [
             UserRegistered(user.id, user.name, user.password, user.class_count)]
         self.add_user_db(self.getConnection('main'), user)
 
-    # def delete_olymp(self, user: User):
-    #     self.all_olymp_dict[olympiad.subject].pop(self.all_olymp_dict[olympiad.subject].index(olympiad))
-    #     self.update_all_olymp_dict()
-    #     self.delete_olymp_db(self.getConnection('main'), olympiad)
+    def delete_user(self, user: UserRegistered):
+        del self.user_all[user.name]
+        self.delete_olymp_db(self.getConnection('main'), user)
 
     def getConnection(self, name_database):
         connection = pymysql.connect(host='localhost',

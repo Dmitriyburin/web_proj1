@@ -19,8 +19,20 @@ class Login(QMainWindow):
         password = self.passwordEdit.text()
         if user_name in self.usersAll.user_all:
             if password == self.usersAll.user_all[user_name][0].password:
-                self.main_w.loginButton.setText(user_name)
+                self.main_w.settings_login(user_name, self.usersAll)
                 self.close()
+            else:
+                QMessageBox.critical(self, 'Error', 'Пароль неверный.',
+                                     buttons=QMessageBox.Ok)
+        else:
+            QMessageBox.critical(self, 'Error', f'Такого пользователя не существует.',
+                                 buttons=QMessageBox.Ok)
+        for field in [self.loginEdit, self.passwordEdit]:
+            if len(field.text()) == 0:
+                flag = False
+                empty_field_style(field, False)
+            else:
+                empty_field_style(field, True)
 
     def show_registration_w(self):
         self.registration_w = Registration(self.usersAll, self.main_w)
@@ -48,20 +60,21 @@ class Registration(QMainWindow):
         for field in [self.loginEdit, self.passwordEdit]:
             if len(field.text()) == 0:
                 flag = False
-                self.empty_field_style(field, False)
+                empty_field_style(field, False)
             else:
-                self.empty_field_style(field, True)
+                empty_field_style(field, True)
         if login in self.usersAll.user_all:
             flag = False
             QMessageBox.question(self, 'Error', 'Такой login уже существует',
-                              buttons=QMessageBox.Ok)
+                                 buttons=QMessageBox.Ok)
         if flag:
             self.usersAll.add_user(UserRegistered(0, login, password, class_count))
-            self.main_w.loginButton.setText(login)
+            self.main_w.settings_login(login, self.usersAll)
             self.close()
 
-    def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
-        if not is_empty:
-            textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
-            return
-        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); border-radius: 10px;')
+
+def empty_field_style(textEdit: QTextEdit, is_empty: bool):
+    if not is_empty:
+        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
+        return
+    textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); border-radius: 10px;')

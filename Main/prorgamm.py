@@ -1,9 +1,9 @@
 import sys
 import datetime
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame, QWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame
 from PyQt5.QtWidgets import QScrollArea, QLabel
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QCoreApplication
 from PyQt5.QtGui import QMouseEvent
 
 from Main_window import MyWidget
@@ -20,12 +20,13 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('MainWindow')
         self.olympiadsAll = OlympiadsAll()
         self.usersAll = UsersAll()
+        self.is_admin = False
         print(self.usersAll.user_all)
         self.program = self
         self.show_main_window()
 
     def show_main_window(self):
-        self.main_w = MyWidget(self.olympiadsAll, self)
+        self.main_w = MyWidget(self.olympiadsAll, self, self.usersAll)
         self.main_w.show()
         self.main_w.addButton.clicked.connect(self.show_create_olymp_window_with_subj)
         self.main_w.loginButton.clicked.connect(self.show_login_window)
@@ -53,12 +54,13 @@ class MainWindow(QMainWindow):
             if obj in self.olymp_label_class:
                 self.show_olymp_window(self.olymp_label_class[obj])
             else:
-                self.show_create_olymp_window(obj.text())
+                if self.main_w.is_admin:
+                    self.show_create_olymp_window(obj.text())
         return super(QMainWindow, self).eventFilter(obj, e)
 
     def show_olymp_window(self, olympiad: Olympiad):
         subject = olympiad.subject
-        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject)
+        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject, self.main_w.is_admin)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
         self.olymp_view_w.show()
         self.passed_olymp(olympiad, self.olymp_view_w)
@@ -90,6 +92,9 @@ def except_hook(cls, exception, traceback):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    w = MainWindow()
+
+    print("[PID]:", QCoreApplication.applicationPid())
+
+    window = MainWindow()
 
     sys.exit(app.exec_())

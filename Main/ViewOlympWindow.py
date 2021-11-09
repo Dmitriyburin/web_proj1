@@ -2,7 +2,7 @@ import sys
 import sqlite3
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QTextEdit
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget
 from PyQt5.QtCore import pyqtSignal, Qt, QObject, QDate
 
 from classes import *
@@ -10,7 +10,7 @@ from CreateOlympWindow import CreateOlymp
 
 
 class MyOlymp(QMainWindow):
-    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject):
+    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin):
         super().__init__()
         uic.loadUi('../ui_files/view_olymp.ui', self)
         self.olympiad = olymp
@@ -18,10 +18,26 @@ class MyOlymp(QMainWindow):
         self.main_w = main_w
         self.program = program
         self.subject = subject
+        self.is_admin = is_admin
         self.updateDisplay()
         self.deleteButton.clicked.connect(self.delete_olymp)
         self.changeButton.clicked.connect(self.change_olymp)
-        self.changeButton.clicked.connect(self.change_olymp)
+
+        if not self.is_admin:
+            self.deleteButton.hide()
+            self.changeButton.hide()
+
+            self.setGeometry(100, 60, 457, 307)
+
+        else:
+            self.deleteButton.show()
+            self.changeButton.show()
+            self.setGeometry(100, 60, 457, 406)
+
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
 
     def updateDisplay(self):
         self.label_title.setText(self.olympiad.title)
