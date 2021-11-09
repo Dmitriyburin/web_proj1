@@ -40,7 +40,6 @@ class MyOlymp(QMainWindow):
                 self.favoritesButton.hide()
         elif self.is_admin:
             self.setGeometry(100, 60, 457, 406)
-        print(self.main_w.current_user.favorites_olymps)
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
@@ -53,6 +52,7 @@ class MyOlymp(QMainWindow):
         self.label_duration.setText(f'{self.olympiad.dur} минут')
         self.label_date.setText(self.olympiad.date.strftime('%d %B %Y'))
         if self.is_favorite:
+            self.favoritesButton.setText('Удалить из избранных')
             self.favoritesButton.setStyleSheet(
                 'QPushButton {background-color: rgb(255, 247, 0);border-radius: 7px;color: '
                 'rgb(0, 132, 255);border: 1px solid rgb(0, 132, 255);}'
