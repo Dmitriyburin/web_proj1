@@ -1,10 +1,9 @@
 import sys
-import sqlite3
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QFrame, QMessageBox
 from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QWidget
-from PyQt5.QtCore import pyqtSignal, Qt, QCoreApplication, QProcess
+from PyQt5.QtCore import QCoreApplication, QProcess
 from PyQt5.QtGui import QPixmap
 from classes import *
 
@@ -12,7 +11,6 @@ from classes import *
 class MyWidget(QMainWindow):
     def __init__(self, olympsAll, program, userAll: UsersAll):
         super().__init__()
-        self.setWindowTitle('Основное окно')
         uic.loadUi('../ui_files/main.ui', self)
         logo = QPixmap('../images/graduation-cap.png')
 

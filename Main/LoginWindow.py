@@ -1,4 +1,4 @@
-from PyQt5 import uic, QtGui
+from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QLineEdit, QMessageBox
 from PyQt5.QtCore import Qt
 from classes import *
@@ -7,7 +7,6 @@ from classes import *
 class Login(QMainWindow):
     def __init__(self, usersAll, main_w):
         super().__init__()
-        self.setWindowTitle('Login')
         self.usersAll = usersAll
         self.main_w = main_w
         uic.loadUi('../ui_files/login.ui', self)

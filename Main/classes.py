@@ -1,6 +1,4 @@
-import sqlite3
 import pymysql.cursors
-from mysql.connector import connect, Error
 import datetime
 
 

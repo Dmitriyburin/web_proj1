@@ -1,6 +1,4 @@
-import datetime
 from PyQt5 import uic
-from PyQt5.QtWidgets import QSpinBox, QPlainTextEdit
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QMessageBox
 from PyQt5.QtCore import QDate
 from classes import *
@@ -8,7 +6,6 @@ from classes import *
 
 class CreateOlymp(QMainWindow):
     def __init__(self, subject: str, olympsAll: OlympiadsAll, main_w, program):
-        self.setWindowTitle('Создание олимпиады')
         super().__init__()
         self.ui()
         self.subject = subject

@@ -1,13 +1,11 @@
-from PyQt5 import uic, QtGui
+from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QFrame, QVBoxLayout, QLabel, QWidget
-from PyQt5.QtCore import Qt
 from classes import *
 
 
 class FavoritesOlymps(QMainWindow):
     def __init__(self, usersAll, main_w, current_user: UserRegistered, program):
         super().__init__()
-        self.setWindowTitle('Любимые олимпиады')
         self.usersAll = usersAll
         self.main_w = main_w
         self.current_user = current_user

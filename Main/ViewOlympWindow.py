@@ -1,19 +1,15 @@
-import sys
-import sqlite3
 import webbrowser
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget, QMessageBox
-from PyQt5.QtCore import pyqtSignal, Qt, QObject, QDate
+from PyQt5.QtCore import Qt
 
 from classes import *
-from CreateOlympWindow import CreateOlymp
 
 
 class MyOlymp(QMainWindow):
     def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin, usersAll: UsersAll):
         super().__init__()
-        self.setWindowTitle('Олимпиада')
         uic.loadUi('../ui_files/view_olymp.ui', self)
         self.olympiad = olymp
         self.olympsAll = olympsAll

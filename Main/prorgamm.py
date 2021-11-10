@@ -1,11 +1,9 @@
 import sys
 import datetime
-import webbrowser
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame
-from PyQt5.QtWidgets import QPushButton, QLabel
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFrame
+from PyQt5.QtWidgets import QLabel
 from PyQt5.QtCore import Qt, QCoreApplication
-from PyQt5.QtGui import QMouseEvent
 
 from Main_window import MyWidget
 from ViewOlympWindow import MyOlymp
@@ -29,6 +27,7 @@ class MainWindow(QMainWindow):
 
     def show_main_window(self):
         self.main_w = MyWidget(self.olympiadsAll, self, self.usersAll)
+        self.main_w.setWindowTitle('Все олимпиады')
         self.main_w.show()
         self.main_w.addButton.clicked.connect(self.show_create_olymp_window_with_subj)
         self.main_w.loginButton.clicked.connect(self.show_login_window)
@@ -69,6 +68,7 @@ class MainWindow(QMainWindow):
         self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject, self.main_w.is_admin,
                                     self.usersAll)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
+        self.olymp_view_w.setWindowTitle('Олимпиада')
         self.olymp_view_w.show()
         self.passed_olymp(olympiad, self.olymp_view_w)
         self.olympiadsAll.update_all_olymp_dict()
@@ -76,11 +76,14 @@ class MainWindow(QMainWindow):
     def show_create_olymp_window(self, subject):
         self.create_olymp_w = CreateOlymp(subject, self.olympiadsAll, self.main_w, self)
         self.create_olymp_w.setWindowModality(Qt.ApplicationModal)
+        self.create_olymp_w.setWindowTitle('Создание олимпиады')
         self.create_olymp_w.show()
 
     def show_create_olymp_window_with_subj(self, subject):
         self.create_olymp_w = CreateOlympWithSubject(subject, self.olympiadsAll, self.main_w, self)
         self.create_olymp_w.setWindowModality(Qt.ApplicationModal)
+        self.create_olymp_w.setWindowTitle('Создание олимпиады')
+
         self.create_olymp_w.show()
 
     def show_login_window(self):
