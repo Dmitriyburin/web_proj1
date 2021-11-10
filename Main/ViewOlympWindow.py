@@ -1,5 +1,6 @@
 import sys
 import sqlite3
+import webbrowser
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget, QMessageBox
@@ -28,6 +29,7 @@ class MyOlymp(QMainWindow):
         self.deleteButton.clicked.connect(self.delete_olymp)
         self.changeButton.clicked.connect(self.change_olymp)
         self.favoritesButton.clicked.connect(self.add_favorite)
+        self.linkButton.clicked.connect(self.open_link)
 
         self.deleteButton.show()
         self.changeButton.show()
@@ -94,11 +96,15 @@ class MyOlymp(QMainWindow):
                 self.main_w.current_user.favorites_olymps.index(self.olympiad))
             self.is_favorite = False
             self.usersAll.delete_favorite_olymp(self.usersAll.getConnection('main'), self.main_w.current_user,
-                                             self.olympiad)
+                                                self.olympiad)
             msg.setText("Олимпиада удалена из избранных")
         msg.show()
-
+        self.main_w.current_user.update_favorites_olymp()
+        print(self.main_w.current_user.favorites_olymps_dict)
         self.close()
+
+    def open_link(self):
+        webbrowser.get(using='windows-default').open_new_tab(self.olympiad.link)
 
 
 class ChangeOlymp(QMainWindow):

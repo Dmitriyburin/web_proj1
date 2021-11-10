@@ -1,5 +1,6 @@
 import sys
 import datetime
+import webbrowser
 
 from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame
 from PyQt5.QtWidgets import QScrollArea, QLabel
@@ -9,6 +10,7 @@ from PyQt5.QtGui import QMouseEvent
 from Main_window import MyWidget
 from ViewOlympWindow import MyOlymp
 from CreateOlympWindow import CreateOlymp, CreateOlympWithSubject
+from FavoritesOlymps import FavoritesOlymps
 from LoginWindow import Login
 
 from classes import OlympiadsAll, Olympiad, UsersAll
@@ -84,6 +86,11 @@ class MainWindow(QMainWindow):
         self.login_w = Login(self.usersAll, self.main_w)
         self.login_w.setWindowModality(Qt.ApplicationModal)
         self.login_w.show()
+
+    def show_favorites_olymps_window(self):
+        self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w, self.main_w.current_user)
+        self.fav_olymps_w.setWindowModality(Qt.ApplicationModal)
+        self.fav_olymps_w.show()
 
     def passed_olymp(self, olympiad, win):
         if datetime.date.today() > olympiad.date:
