@@ -3,7 +3,7 @@ import datetime
 import webbrowser
 
 from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QFrame
-from PyQt5.QtWidgets import QScrollArea, QLabel
+from PyQt5.QtWidgets import QPushButton, QLabel
 from PyQt5.QtCore import Qt, QCoreApplication
 from PyQt5.QtGui import QMouseEvent
 
@@ -19,6 +19,7 @@ from classes import OlympiadsAll, Olympiad, UsersAll
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+
         self.setWindowTitle('MainWindow')
         self.olympiadsAll = OlympiadsAll()
         self.usersAll = UsersAll(self.olympiadsAll)
@@ -88,7 +89,7 @@ class MainWindow(QMainWindow):
         self.login_w.show()
 
     def show_favorites_olymps_window(self):
-        self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w, self.main_w.current_user)
+        self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w, self.main_w.current_user, self.program)
         self.fav_olymps_w.setWindowModality(Qt.ApplicationModal)
         self.fav_olymps_w.show()
 

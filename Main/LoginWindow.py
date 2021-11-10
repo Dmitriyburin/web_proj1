@@ -7,6 +7,7 @@ from classes import *
 class Login(QMainWindow):
     def __init__(self, usersAll, main_w):
         super().__init__()
+        self.setWindowTitle('Login')
         self.usersAll = usersAll
         self.main_w = main_w
         uic.loadUi('../ui_files/login.ui', self)

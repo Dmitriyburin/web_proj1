@@ -13,6 +13,7 @@ from CreateOlympWindow import CreateOlymp
 class MyOlymp(QMainWindow):
     def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin, usersAll: UsersAll):
         super().__init__()
+        self.setWindowTitle('Олимпиада')
         uic.loadUi('../ui_files/view_olymp.ui', self)
         self.olympiad = olymp
         self.olympsAll = olympsAll

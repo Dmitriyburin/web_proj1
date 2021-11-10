@@ -8,6 +8,7 @@ from classes import *
 
 class CreateOlymp(QMainWindow):
     def __init__(self, subject: str, olympsAll: OlympiadsAll, main_w, program):
+        self.setWindowTitle('Создание олимпиады')
         super().__init__()
         self.ui()
         self.subject = subject

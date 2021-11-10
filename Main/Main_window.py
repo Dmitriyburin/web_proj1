@@ -4,14 +4,20 @@ import sqlite3
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QFrame, QMessageBox
 from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QWidget
-from PyQt5.QtCore import pyqtSignal, Qt, QObject, QCoreApplication, QProcess
+from PyQt5.QtCore import pyqtSignal, Qt, QCoreApplication, QProcess
+from PyQt5.QtGui import QPixmap
 from classes import *
 
 
 class MyWidget(QMainWindow):
     def __init__(self, olympsAll, program, userAll: UsersAll):
         super().__init__()
+        self.setWindowTitle('Основное окно')
         uic.loadUi('../ui_files/main.ui', self)
+        logo = QPixmap('../images/graduation-cap.png')
+
+        self.logo.setPixmap(logo)  # логотип
+        self.logo.setScaledContents(True)
         self.current_user = False
         self.is_admin = False
         self.olympiadsAll = olympsAll
@@ -47,6 +53,8 @@ class MyWidget(QMainWindow):
 
             frame.setLayout(layout_frame)
             self.layout.addWidget(frame)
+        if not len(olymp_dict):
+            self.layout.addWidget(QLabel('Ни одной олимпиады не нашлось('))
         self.layout.setContentsMargins(10, 10, 0, 400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
         print(400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
         print('смениласб')
@@ -158,7 +166,6 @@ class MyWidget(QMainWindow):
                 self.restart()
         elif command == 'Избранные олимпиады':
             self.program.show_favorites_olymps_window()
-
 
     def restart(self):
         QCoreApplication.quit()
