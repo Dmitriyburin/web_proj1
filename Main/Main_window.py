@@ -53,7 +53,8 @@ class MyWidget(QMainWindow):
             self.layout.addWidget(frame)
         if not len(olymp_dict):
             self.layout.addWidget(QLabel('Ни одной олимпиады не нашлось('))
-        self.layout.setContentsMargins(10, 10, 0, 400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
+        self.layout.setContentsMargins(10, 10, 0, 400 - ((len(olymp_dict.values())
+                                                          + len(olymp_dict.keys())) * 30))
         print(400 - ((len(olymp_dict.values()) + len(olymp_dict.keys())) * 30))
         print('смениласб')
         self.widget.setLayout(self.layout)
@@ -157,7 +158,8 @@ class MyWidget(QMainWindow):
         if command == 'Выйти':
             self.restart()
         elif command == 'Удалить аккаунт':
-            message = QMessageBox.warning(self, 'Осторожно', 'Вы уверены, что хотите удалить аккаунт?',
+            message = QMessageBox.warning(self, 'Осторожно', 'Вы уверены, '
+                                                             'что хотите удалить аккаунт?',
                                           QMessageBox.Yes | QMessageBox.No)
             if message == QMessageBox.Yes:
                 self.delete_user()
@@ -177,10 +179,3 @@ class MyWidget(QMainWindow):
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
 
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    w = MyWidget()
-
-    w.show()
-    sys.exit(app.exec_())

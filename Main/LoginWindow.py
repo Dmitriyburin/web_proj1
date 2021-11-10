@@ -19,7 +19,8 @@ class Login(QMainWindow):
         password = self.passwordEdit.text()
         if user_name in self.usersAll.user_all:
             if password == self.usersAll.user_all[user_name][0].password:
-                self.main_w.settings_login(self.usersAll.user_all[user_name][0], self.usersAll)
+                self.main_w.settings_login(self.usersAll.user_all[user_name][0],
+                                           self.usersAll)
                 self.close()
             else:
                 QMessageBox.critical(self, 'Error', 'Пароль неверный.',
@@ -75,6 +76,8 @@ class Registration(QMainWindow):
 
 def empty_field_style(textEdit: QTextEdit, is_empty: bool):
     if not is_empty:
-        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
+        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; '
+                               f'border-radius: 10px;')
         return
-    textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); border-radius: 10px;')
+    textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); '
+                           f'border-radius: 10px;')

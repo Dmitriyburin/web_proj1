@@ -65,7 +65,8 @@ class MainWindow(QMainWindow):
 
     def show_olymp_window(self, olympiad: Olympiad):
         subject = olympiad.subject
-        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll, self.main_w, self, subject, self.main_w.is_admin,
+        self.olymp_view_w = MyOlymp(olympiad, self.olympiadsAll,
+                                    self.main_w, self, subject, self.main_w.is_admin,
                                     self.usersAll)
         self.olymp_view_w.setWindowModality(Qt.ApplicationModal)
         self.olymp_view_w.setWindowTitle('Олимпиада')
@@ -74,13 +75,15 @@ class MainWindow(QMainWindow):
         self.olympiadsAll.update_all_olymp_dict()
 
     def show_create_olymp_window(self, subject):
-        self.create_olymp_w = CreateOlymp(subject, self.olympiadsAll, self.main_w, self)
+        self.create_olymp_w = CreateOlymp(subject, self.olympiadsAll,
+                                          self.main_w, self)
         self.create_olymp_w.setWindowModality(Qt.ApplicationModal)
         self.create_olymp_w.setWindowTitle('Создание олимпиады')
         self.create_olymp_w.show()
 
     def show_create_olymp_window_with_subj(self, subject):
-        self.create_olymp_w = CreateOlympWithSubject(subject, self.olympiadsAll, self.main_w, self)
+        self.create_olymp_w = CreateOlympWithSubject(subject, self.olympiadsAll,
+                                                     self.main_w, self)
         self.create_olymp_w.setWindowModality(Qt.ApplicationModal)
         self.create_olymp_w.setWindowTitle('Создание олимпиады')
 
@@ -92,7 +95,8 @@ class MainWindow(QMainWindow):
         self.login_w.show()
 
     def show_favorites_olymps_window(self):
-        self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w, self.main_w.current_user, self.program)
+        self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w,
+                                            self.main_w.current_user, self.program)
         self.fav_olymps_w.setWindowModality(Qt.ApplicationModal)
         self.fav_olymps_w.show()
 
@@ -103,13 +107,3 @@ class MainWindow(QMainWindow):
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-
-    print("[PID]:", QCoreApplication.applicationPid())
-
-    window = MainWindow()
-
-    sys.exit(app.exec_())

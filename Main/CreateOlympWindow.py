@@ -41,8 +41,10 @@ class CreateOlymp(QMainWindow):
                 self.empty_field_style(field, True)
         try:
             if flag:
-                olymp = Olympiad(0, self.subject, self.titleEdit.text(), int(self.classEdit.text()),
-                                 self.descrPlainEdit.toPlainText(), int(self.durPlainEdit.toPlainText()),
+                olymp = Olympiad(0, self.subject, self.titleEdit.text(),
+                                 int(self.classEdit.text()),
+                                 self.descrPlainEdit.toPlainText(),
+                                 int(self.durPlainEdit.toPlainText()),
                                  self.linkEdit.text(), date)
                 self.olympsAll.add_olymp(olymp)
                 self.main_w.current_olymps = self.olympsAll.all_olymp_dict.copy()
@@ -55,9 +57,11 @@ class CreateOlymp(QMainWindow):
 
     def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
         if not is_empty:
-            textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
+            textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; '
+                                   f'border-radius: 10px;')
             return
-        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); border-radius: 10px;')
+        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); '
+                               f'border-radius: 10px;')
 
 
 class CreateOlympWithSubject(CreateOlymp):

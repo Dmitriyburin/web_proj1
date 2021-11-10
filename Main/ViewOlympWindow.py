@@ -8,7 +8,8 @@ from classes import *
 
 
 class MyOlymp(QMainWindow):
-    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject, is_admin, usersAll: UsersAll):
+    def __init__(self, olymp, olympsAll: OlympiadsAll, main_w, program, subject,
+                 is_admin, usersAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/view_olymp.ui', self)
         self.olympiad = olymp
@@ -19,7 +20,8 @@ class MyOlymp(QMainWindow):
         self.subject = subject
         self.is_admin = is_admin
         if self.main_w.current_user:
-            self.is_favorite = True if self.olympiad in self.main_w.current_user.favorites_olymps else False
+            self.is_favorite = True if self.olympiad in\
+                                       self.main_w.current_user.favorites_olymps else False
         else:
             self.is_favorite = False
         self.updateDisplay()
@@ -71,7 +73,8 @@ class MyOlymp(QMainWindow):
 
     def change_olymp(self):
         self.main_w.current_olymps = self.olympsAll.all_olymp_dict.copy()
-        self.change_olymp_w = ChangeOlymp(self.olympiad, self.olympsAll, self.main_w, self.program, self.subject)
+        self.change_olymp_w = ChangeOlymp(self.olympiad, self.olympsAll,
+                                          self.main_w, self.program, self.subject)
         self.change_olymp_w.setWindowModality(Qt.ApplicationModal)
         self.change_olymp_w.show()
         self.close()
@@ -85,14 +88,16 @@ class MyOlymp(QMainWindow):
         if not self.is_favorite:
             self.main_w.current_user.favorites_olymps.append(self.olympiad)
             self.is_favorite = True
-            self.usersAll.add_favorite_olymp(self.usersAll.getConnection('main'), self.main_w.current_user,
+            self.usersAll.add_favorite_olymp(self.usersAll.getConnection('main'),
+                                             self.main_w.current_user,
                                              self.olympiad)
             msg.setText("Олимпиада добавлена в избранные")
         else:
             self.main_w.current_user.favorites_olymps.pop(
                 self.main_w.current_user.favorites_olymps.index(self.olympiad))
             self.is_favorite = False
-            self.usersAll.delete_favorite_olymp(self.usersAll.getConnection('main'), self.main_w.current_user,
+            self.usersAll.delete_favorite_olymp(self.usersAll.getConnection('main'),
+                                                self.main_w.current_user,
                                                 self.olympiad)
             msg.setText("Олимпиада удалена из избранных")
         msg.show()
@@ -105,7 +110,8 @@ class MyOlymp(QMainWindow):
 
 
 class ChangeOlymp(QMainWindow):
-    def __init__(self, olympiad: Olympiad, olympsAll: OlympiadsAll, main_w, program, subject):
+    def __init__(self, olympiad: Olympiad, olympsAll: OlympiadsAll, main_w,
+                 program, subject):
         super().__init__()
         uic.loadUi('../ui_files/new_olymp.ui', self)
         self.saveButton.clicked.connect(self.change)
@@ -143,8 +149,10 @@ class ChangeOlymp(QMainWindow):
             year, month, day = int(date[0]), int(date[1]), int(date[2])
             date = datetime.date(year, month, day)
             print(self.subject)
-            olymp = Olympiad(0, self.subject, self.titleEdit.text(), int(self.classEdit.text()),
-                             self.descrPlainEdit.toPlainText(), int(self.durPlainEdit.toPlainText()),
+            olymp = Olympiad(0, self.subject, self.titleEdit.text(),
+                             int(self.classEdit.text()),
+                             self.descrPlainEdit.toPlainText(),
+                             int(self.durPlainEdit.toPlainText()),
                              self.linkEdit.text(), date)
             self.olympiadsAll.add_olymp(olymp)
             self.main_w.current_olymps = self.olympiadsAll.all_olymp_dict.copy()
@@ -154,6 +162,8 @@ class ChangeOlymp(QMainWindow):
 
     def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
         if not is_empty:
-            textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; border-radius: 10px;')
+            textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; '
+                                   f'border-radius: 10px;')
             return
-        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); border-radius: 10px;')
+        textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid rgb(0, 132, 255); '
+                               f'border-radius: 10px;')

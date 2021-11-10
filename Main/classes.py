@@ -61,19 +61,20 @@ class OlympiadsAll:
                         self.all_olymp_dict[olymp['subject']].append(
                             Olympiad(olymp['id'], olymp['subject'], olymp['title'],
                                      olymp['school_class'],
-                                     olymp['description'], olymp['duration'], olymp['link'], olymp['date']))
+                                     olymp['description'], olymp['duration'],
+                                     olymp['link'], olymp['date']))
                     else:
                         self.all_olymp_dict[olymp['subject']] = [
                             Olympiad(olymp['id'], olymp['subject'], olymp['title'],
                                      olymp['school_class'],
-                                     olymp['description'], olymp['duration'], olymp['link'], olymp['date'])]
+                                     olymp['description'], olymp['duration'],
+                                     olymp['link'], olymp['date'])]
         finally:
             # Закрыть соединение (Close connection).
             connection.commit()
             connection.close()
         print(self.all_olymp_dict)
         self.update_all_olymp_dict()
-        # self.add_olymp(self.getConnection('main'), 'ГЕОМЕТРИЯ', 'ЖИЗНЬ', '9', 'круто', '90', 'ссылка', '14')
 
     def getConnection(self, name_database):
         connection = pymysql.connect(host='localhost',
@@ -90,7 +91,8 @@ class OlympiadsAll:
                 cursor.execute(
                     "INSERT INTO `olympiads` VALUES"
                     " (NULL, '{}', '{}', '{}', '{}', '{}', '{}', '{}')"
-                    "".format(olymp.subject, olymp.title, olymp.sch_class, olymp.des, olymp.dur, olymp.link,
+                    "".format(olymp.subject, olymp.title, olymp.sch_class,
+                              olymp.des, olymp.dur, olymp.link,
                               olymp.date))
                 cursor.execute('SELECT * FROM olympiads')
                 print('\nДОБАВЛЕНО\n')
@@ -102,8 +104,10 @@ class OlympiadsAll:
         try:
 
             with con.cursor() as cursor:
-                cursor.execute('DELETE FROM participations WHERE id_olymp = "{}"'.format(olymp.id))
-                cursor.execute('DELETE FROM olympiads WHERE id = "{}"'.format(olymp.id))
+                cursor.execute('DELETE FROM participations WHERE id_olymp = "{}"'.format(
+                    olymp.id))
+                cursor.execute('DELETE FROM olympiads WHERE id = "{}"'.format(
+                    olymp.id))
                 print('\nУДАЛЕНО\n')
         finally:
             con.commit()
@@ -113,19 +117,22 @@ class OlympiadsAll:
 
         if olymp.subject in self.all_olymp_dict:
             self.all_olymp_dict[olymp.subject].append(
-                Olympiad(self.getId(self.getConnection('main')) + 1, olymp.subject, olymp.title, olymp.sch_class,
+                Olympiad(self.getId(self.getConnection('main')) + 1,
+                         olymp.subject, olymp.title, olymp.sch_class,
                          olymp.des,
                          olymp.dur, olymp.link, olymp.date))
         else:
             self.all_olymp_dict[olymp.subject] = [
-                Olympiad(self.getId(self.getConnection('main')) + 1, olymp.subject, olymp.title, olymp.sch_class,
+                Olympiad(self.getId(self.getConnection('main')) + 1,
+                         olymp.subject, olymp.title, olymp.sch_class,
                          olymp.des,
                          olymp.dur, olymp.link, olymp.date)]
         self.update_all_olymp_dict()
         self.add_olymp_db(self.getConnection('main'), olymp)
 
     def delete_olymp(self, olympiad: Olympiad):
-        self.all_olymp_dict[olympiad.subject].pop(self.all_olymp_dict[olympiad.subject].index(olympiad))
+        self.all_olymp_dict[olympiad.subject].pop(
+            self.all_olymp_dict[olympiad.subject].index(olympiad))
         self.update_all_olymp_dict()
         self.delete_olymp_db(self.getConnection('main'), olympiad)
 
@@ -161,7 +168,8 @@ class UsersAll:
                 cursor.execute('SELECT * FROM users')
                 for user in cursor.fetchall():
                     self.user_all[user['name']] = [
-                        UserRegistered(user['id'], user['name'], user['password'], user['class'])]
+                        UserRegistered(user['id'], user['name'],
+                                       user['password'], user['class'])]
         finally:
             # Закрыть соединение (Close connection).
             connection.commit()
@@ -172,14 +180,16 @@ class UsersAll:
         try:
             with connection.cursor() as cursor:
                 cursor.execute('SELECT name FROM users '
-                               'INNER JOIN participations ON users.id = participations.id_user;')
+                               'INNER JOIN participations ON users.id = '
+                               'participations.id_user;')
                 users = []
                 olymps = []
                 for name in cursor.fetchall():
                     print(name)
                     users.append(self.user_all[name['name']][0])
                 cursor.execute('SELECT * FROM olympiads '
-                               'INNER JOIN participations ON olympiads.id = participations.id_olymp;')
+                               'INNER JOIN participations ON olympiads.id = '
+                               'participations.id_olymp;')
                 for olymp in cursor.fetchall():
 
                     olymps_subject = self.olympsAll.all_olymp_dict[olymp['subject']]
@@ -267,36 +277,3 @@ class UsersAll:
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         return connection
-
-# cur.execute('CREATE TABLE IF NOT EXISTS olympiads(subject text, title text, school_class integer,'
-#             'description text, duration integer, link text, count int)')
-# # cur.execute("INSERT INTO olympiads VALUES ('Информатика', 'Олимпиада', '9', 'очень круто', '90', 'ссылка', '0')")
-# #             "('Русский язык', 'Медвежонок', 9, 'очень круто', 90, 'ссылка', '0'),"
-# #             "('Математика', 'Олимпиада ВШЭ', 9, 'очень круто', 90, 'ссылка', '0'),"
-# #             "('Физика', 'Сириус', 9, 'очень круто', 90, 'ссылка', '0'),"
-# #             "('Химия', 'Сириус', 9, 'очень круто', 90, 'ссылка', '0'),"
-# #             "('Английский язык', 'Бульдог', 9, 'очень круто', 90, 'ссылка', '0')")
-
-# CREATE TABLE participations (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE, id_user INTEGER,
-# id_olymp INTEGER, FOREIGN KEY (id_user)  REFERENCES users (id),  FOREIGN KEY (id_olymp)  REFERENCES olympiads (id));
-
-#  CREATE TABLE olympiads (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE, name TEXT, password TEXT, class INTEGER);
-
-# "INSERT INTO `olympiads` VALUES ('1', 'Информатика', 'Олимпиада', '9', 'очень интеренснооо', '90', 'ссылка', '13')"
-#
-# INSERT
-# INTO
-# olympiads
-# VALUES(NULL, 'Информатика', 'Олимпиада', '9', 'очень круто', '90', 'ссылка', '0'),
-# (NULL, 'Русский язык', 'Медвежонок', 9, 'очень круто', 90, 'ссылка', '0'),
-# (NULL, 'Математика', 'Олимпиада ВШЭ', 9, 'очень круто', 90, 'ссылка', '0'),
-# (NULL, 'Физика', 'Сириус', 9, 'очень круто', 90, 'ссылка', '0'),
-# (NULL, 'Химия', 'Сириус', 9, 'очень круто', 90, 'ссылка', '0'),
-# (NULL, 'Английский язык', 'Бульдог', 9, 'очень круто', 90, 'ссылка', '0')
-
-
-# cursor.execute(
-#     "INSERT INTO `olympiads` VALUES"
-#     " (NULL, 'Информатика', 'Олимпиада', '9', 'очень интеренснооо', '90', 'ссылка', '13')")
-# cursor.execute('SELECT * FROM olympiads')
-# print(cursor.fetchall())
