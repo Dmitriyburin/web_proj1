@@ -6,11 +6,14 @@ from classes import *
 class FavoritesOlymps(QMainWindow):
     def __init__(self, usersAll, main_w, current_user: UserRegistered, program):
         super().__init__()
+        uic.loadUi('../ui_files/favorites_olymp.ui', self)
+        self.setFixedSize(self.size())
+
         self.usersAll = usersAll
         self.main_w = main_w
         self.current_user = current_user
         self.program = program
-        uic.loadUi('../ui_files/favorites_olymp.ui', self)
+
         self.widget = QWidget(self)  # для корректного отображения олимп. на scrollArea
         self.layout = QVBoxLayout(self)  # для корректного отображения олимп. на scrollArea
 

@@ -10,6 +10,8 @@ class Login(QMainWindow):
         self.usersAll = usersAll
         self.main_w = main_w
         uic.loadUi('../ui_files/login.ui', self)
+        self.setFixedSize(self.size())
+
         self.registrationButton.clicked.connect(self.show_registration_w)
         self.loginButton.clicked.connect(self.login)
         self.passwordEdit.setEchoMode(QLineEdit.Password)

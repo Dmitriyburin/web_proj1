@@ -12,6 +12,8 @@ class MyOlymp(QMainWindow):
                  is_admin, usersAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/view_olymp.ui', self)
+        self.setFixedSize(self.size())
+
         self.olympiad = olymp
         self.olympsAll = olympsAll
         self.usersAll = usersAll
@@ -114,6 +116,8 @@ class ChangeOlymp(QMainWindow):
                  program, subject):
         super().__init__()
         uic.loadUi('../ui_files/new_olymp.ui', self)
+        self.setFixedSize(self.size())
+
         self.saveButton.clicked.connect(self.change)
         self.olympiadsAll = olympsAll
         self.main_w = main_w

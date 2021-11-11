@@ -20,6 +20,7 @@ class CreateOlymp(QMainWindow):
     def ui(self):
         uic.loadUi('../ui_files/new_olymp.ui', self)
         self.saveButton.clicked.connect(self.save)
+        self.setFixedSize(self.size())
 
     def save(self):
         date = self.dateEdit.dateTime().toString('yyyy-M-d').split('-')
@@ -55,7 +56,7 @@ class CreateOlymp(QMainWindow):
             QMessageBox.critical(self, 'Error', 'Введенные данные некорректны',
                                  buttons=QMessageBox.Ok)
 
-    def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):
+    def empty_field_style(self, textEdit: QTextEdit, is_empty: bool):  # ccs стили для некорректных полей
         if not is_empty:
             textEdit.setStyleSheet(f'{textEdit.styleSheet()} border: 1px solid red; '
                                    f'border-radius: 10px;')
@@ -71,6 +72,7 @@ class CreateOlympWithSubject(CreateOlymp):
     def ui(self):
         uic.loadUi('../ui_files/new_olymp_with_subject.ui', self)
         self.saveButton.clicked.connect(self.click)
+        self.setFixedSize(self.size())
 
     def click(self):
         self.subject = self.subjectEdit.text()

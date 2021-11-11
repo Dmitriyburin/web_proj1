@@ -18,7 +18,7 @@ class UserRegistered(User):
         self.favorites_olymps_dict = {}
         self.status = 'registered'
 
-    def update_favorites_olymp(self):
+    def update_favorites_olymp(self):  # обновление информации о избраннных олимпиадах
         self.favorites_olymps_dict = {}
         print(self.favorites_olymps)
         for olymp in self.favorites_olymps:
@@ -53,7 +53,7 @@ class OlympiadsAll:
 
         # Подключиться к базе данных
         connection = self.getConnection('main')
-        try:
+        try:  # выгрузка из базы данных олимпиад
             with connection.cursor() as cursor:
                 cursor.execute('SELECT * FROM olympiads')
                 for olymp in cursor.fetchall():
@@ -76,7 +76,7 @@ class OlympiadsAll:
         print(self.all_olymp_dict)
         self.update_all_olymp_dict()
 
-    def getConnection(self, name_database):
+    def getConnection(self, name_database):  # возвращает connection для работы с бд
         connection = pymysql.connect(host='localhost',
                                      user='root',
                                      password='admin',
@@ -85,7 +85,7 @@ class OlympiadsAll:
                                      cursorclass=pymysql.cursors.DictCursor)
         return connection
 
-    def add_olymp_db(self, con, olymp: Olympiad):
+    def add_olymp_db(self, con, olymp: Olympiad):  # добавление олимпиады в бд
         try:
             with con.cursor() as cursor:
                 cursor.execute(
@@ -100,7 +100,7 @@ class OlympiadsAll:
             con.commit()
             con.close()
 
-    def delete_olymp_db(self, con, olymp: Olympiad):
+    def delete_olymp_db(self, con, olymp: Olympiad):  # удаление олимпиады в бд
         try:
 
             with con.cursor() as cursor:
@@ -113,7 +113,7 @@ class OlympiadsAll:
             con.commit()
             con.close()
 
-    def add_olymp(self, olymp: Olympiad):
+    def add_olymp(self, olymp: Olympiad):  # добавление олимпиады в словарь
 
         if olymp.subject in self.all_olymp_dict:
             self.all_olymp_dict[olymp.subject].append(
@@ -130,19 +130,19 @@ class OlympiadsAll:
         self.update_all_olymp_dict()
         self.add_olymp_db(self.getConnection('main'), olymp)
 
-    def delete_olymp(self, olympiad: Olympiad):
+    def delete_olymp(self, olympiad: Olympiad):  # добавление олимпиады из словаря
         self.all_olymp_dict[olympiad.subject].pop(
             self.all_olymp_dict[olympiad.subject].index(olympiad))
         self.update_all_olymp_dict()
         self.delete_olymp_db(self.getConnection('main'), olympiad)
 
-    def update_all_olymp_dict(self):
+    def update_all_olymp_dict(self):  # добавление информации о олимпиадах
         for subject, olymps in self.all_olymp_dict.copy().items():
             if len(olymps) == 0:
                 del self.all_olymp_dict[subject]
         self.all_olymp_dict = dict(sorted(self.all_olymp_dict.items()))
 
-    def getId(self, con):
+    def getId(self, con):  # возвращает последний id из бд
         try:
             with con.cursor() as cursor:
                 cursor.execute('SELECT * FROM olympiads ORDER BY ID DESC LIMIT 1')
@@ -176,7 +176,7 @@ class UsersAll:
             connection.close()
         self.update_fav_olymps(self.getConnection('main'))
 
-    def update_fav_olymps(self, connection):
+    def update_fav_olymps(self, connection):  # обновление бд
         try:
             with connection.cursor() as cursor:
                 cursor.execute('SELECT name FROM users '
@@ -237,6 +237,7 @@ class UsersAll:
     def add_favorite_olymp(self, con, user: UserRegistered, olymp: Olympiad):
         try:
             with con.cursor() as cursor:
+                print(user.id, olymp.id)
                 cursor.execute(
                     "INSERT INTO `participations` VALUES"
                     " (NULL, '{}', '{}')"
@@ -258,16 +259,21 @@ class UsersAll:
             con.close()
 
     def add_user(self, user: UserRegistered):
+        con = self.getConnection('main')
+        try:
+            with con.cursor() as cursor:
+                cursor.execute('SELECT MAX(id) FROM users')
+                id = cursor.fetchall()[0]['MAX(id)'] + 1
+        finally:
+            con.commit()
+            con.close()
         self.user_all[user.name] = [
-            UserRegistered(user.id, user.name, user.password, user.class_count)]
+            UserRegistered(id, user.name, user.password, user.class_count)]
         self.add_user_db(self.getConnection('main'), user)
 
     def delete_user(self, user: UserRegistered):
         del self.user_all[user.name]
         self.delete_olymp_db(self.getConnection('main'), user)
-
-    def add_favorite_olymp_db(self, user: UserRegistered):
-        pass
 
     def getConnection(self, name_database):
         connection = pymysql.connect(host='localhost',
@@ -277,3 +283,7 @@ class UsersAll:
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         return connection
+
+# pyinstaller -w Main/programm.py -p Main/classes.py -p Main/CreateOlympWindwow.py -p Main/FavoritesOlymps.py -p Main/LoginWindwow.py -p Main/Main_indwow.py -p Main/ViewOlympWindow.py --hidden-import pymysql.cursors --hidden-import datetime --hidden-import sys --hidden-import pyqt5 --hidden-import webbrowser --hidden-import classes
+
+

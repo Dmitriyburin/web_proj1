@@ -13,6 +13,7 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('../ui_files/main.ui', self)
         logo = QPixmap('../images/graduation-cap.png')
+        self.setFixedSize(self.size())
 
         self.logo.setPixmap(logo)  # логотип
         self.logo.setScaledContents(True)
@@ -153,7 +154,7 @@ class MyWidget(QMainWindow):
         self.loginButton.setText(user_name.name)
         # self.loginButton.clicked.connect(self.menu_login)
 
-    def menu_login(self):
+    def menu_login(self):  # настройка основного меню comboBox
         command = self.comboBox.currentText()
         if command == 'Выйти':
             self.restart()
@@ -167,12 +168,12 @@ class MyWidget(QMainWindow):
         elif command == 'Избранные олимпиады':
             self.program.show_favorites_olymps_window()
 
-    def restart(self):
+    def restart(self):  # перезагрузка(на данный момент: выход из программы)
         QCoreApplication.quit()
         status = QProcess.startDetached(sys.executable, sys.argv)
         print(status)
 
-    def delete_user(self):
+    def delete_user(self):  # удаление пользователя
         self.userAll.delete_user(self.current_user)
 
 
