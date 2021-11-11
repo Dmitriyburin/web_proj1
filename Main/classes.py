@@ -283,7 +283,3 @@ class UsersAll:
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         return connection
-
-# pyinstaller -w Main/programm.py -p Main/classes.py -p Main/CreateOlympWindwow.py -p Main/FavoritesOlymps.py -p Main/LoginWindwow.py -p Main/Main_indwow.py -p Main/ViewOlympWindow.py --hidden-import pymysql.cursors --hidden-import datetime --hidden-import sys --hidden-import pyqt5 --hidden-import webbrowser --hidden-import classes
-
-

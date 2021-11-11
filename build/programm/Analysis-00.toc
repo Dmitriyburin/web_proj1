@@ -1,19 +1,6 @@
 (['D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\programm.py'],
- ['D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\classes.py',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект '
-  '_PYQT\\Main\\CreateOlympWindwow.py',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\FavoritesOlymps.py',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\LoginWindwow.py',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\Main_indwow.py',
-  'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\ViewOlympWindow.py'],
- ['pymysql.cursors',
-  'datetime',
-  'sys',
-  'pyqt5',
-  'webbrowser',
-  'classes',
-  'codecs'],
+ ['D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main'],
+ ['codecs'],
  [],
  {},
  [],
@@ -437,6 +424,9 @@
    'PYMODULE'),
   ('pdb', 'd:\\Programming\\Python 3.9.6\\lib\\pdb.py', 'PYMODULE'),
   ('pydoc', 'd:\\Programming\\Python 3.9.6\\lib\\pydoc.py', 'PYMODULE'),
+  ('webbrowser',
+   'd:\\Programming\\Python 3.9.6\\lib\\webbrowser.py',
+   'PYMODULE'),
   ('http.server',
    'd:\\Programming\\Python 3.9.6\\lib\\http\\server.py',
    'PYMODULE'),
@@ -566,8 +556,15 @@
    'PYMODULE'),
   ('posixpath', 'd:\\Programming\\Python 3.9.6\\lib\\posixpath.py', 'PYMODULE'),
   ('stat', 'd:\\Programming\\Python 3.9.6\\lib\\stat.py', 'PYMODULE'),
-  ('webbrowser',
-   'd:\\Programming\\Python 3.9.6\\lib\\webbrowser.py',
+  ('stringprep',
+   'd:\\Programming\\Python 3.9.6\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'd:\\Programming\\Python 3.9.6\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('_py_abc', 'd:\\Programming\\Python 3.9.6\\lib\\_py_abc.py', 'PYMODULE'),
+  ('classes',
+   'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\classes.py',
    'PYMODULE'),
   ('pymysql.cursors',
    'd:\\Programming\\Python 3.9.6\\lib\\site-packages\\pymysql\\cursors.py',
@@ -627,13 +624,6 @@
   ('pymysql.times',
    'd:\\Programming\\Python 3.9.6\\lib\\site-packages\\pymysql\\times.py',
    'PYMODULE'),
-  ('stringprep',
-   'd:\\Programming\\Python 3.9.6\\lib\\stringprep.py',
-   'PYMODULE'),
-  ('tracemalloc',
-   'd:\\Programming\\Python 3.9.6\\lib\\tracemalloc.py',
-   'PYMODULE'),
-  ('_py_abc', 'd:\\Programming\\Python 3.9.6\\lib\\_py_abc.py', 'PYMODULE'),
   ('LoginWindow',
    'D:\\Programming\\Yandex Lyceum\\1ый_проект _PYQT\\Main\\LoginWindow.py',
    'PYMODULE'),
@@ -771,9 +761,17 @@
    'd:\\Programming\\Python 3.9.6\\VCRUNTIME140.dll',
    'BINARY'),
   ('python39.dll', 'd:\\Programming\\Python 3.9.6\\python39.dll', 'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
    'BINARY'),
   ('libEGL.dll',
    'D:\\Programming\\Python '
@@ -783,73 +781,65 @@
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\libGLESv2.dll',
    'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
+  ('PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
    'BINARY'),
   ('PyQt5\\Qt5\\plugins\\imageformats\\qico.dll',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qico.dll',
    'BINARY'),
-  ('opengl32sw.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\opengl32sw.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll',
-   'BINARY'),
   ('d3dcompiler_47.dll',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\d3dcompiler_47.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
-   'BINARY'),
-  ('PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
    'BINARY'),
   ('PyQt5\\Qt5\\plugins\\imageformats\\qtiff.dll',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qtiff.dll',
    'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll',
+   'BINARY'),
+  ('opengl32sw.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\opengl32sw.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll',
+   'BINARY'),
   ('PyQt5\\Qt5\\plugins\\imageformats\\qwbmp.dll',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll',
+   'BINARY'),
+  ('PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll',
    'BINARY'),
   ('select', 'd:\\Programming\\Python 3.9.6\\DLLs\\select.pyd', 'EXTENSION'),
   ('unicodedata',
@@ -893,41 +883,45 @@
   ('PyQt5.QtWidgets',
    'd:\\Programming\\Python 3.9.6\\lib\\site-packages\\PyQt5\\QtWidgets.pyd',
    'EXTENSION'),
-  ('VCRUNTIME140_1.dll',
-   'd:\\Programming\\Python 3.9.6\\VCRUNTIME140_1.dll',
-   'BINARY'),
-  ('Qt5Gui.dll',
+  ('Qt5Svg.dll',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Gui.dll',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Svg.dll',
    'BINARY'),
   ('Qt5Core.dll',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Core.dll',
    'BINARY'),
-  ('MSVCP140.dll', 'C:\\Windows\\system32\\MSVCP140.dll', 'BINARY'),
-  ('Qt5Widgets.dll',
+  ('Qt5Gui.dll',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Widgets.dll',
-   'BINARY'),
-  ('Qt5Svg.dll',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Svg.dll',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Gui.dll',
    'BINARY'),
   ('Qt5DBus.dll',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5DBus.dll',
    'BINARY'),
+  ('VCRUNTIME140_1.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('MSVCP140.dll',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\MSVCP140.dll',
+   'BINARY'),
+  ('Qt5Widgets.dll',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Widgets.dll',
+   'BINARY'),
   ('Qt5Quick.dll',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Quick.dll',
    'BINARY'),
-  ('Qt5WebSockets.dll',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5WebSockets.dll',
-   'BINARY'),
   ('Qt5Network.dll',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Network.dll',
+   'BINARY'),
+  ('Qt5WebSockets.dll',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5WebSockets.dll',
    'BINARY'),
   ('libcrypto-1_1.dll',
    'd:\\Programming\\Python 3.9.6\\DLLs\\libcrypto-1_1.dll',
@@ -943,13 +937,13 @@
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\MSVCP140_1.dll',
    'BINARY'),
-  ('Qt5Qml.dll',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Qml.dll',
-   'BINARY'),
   ('Qt5QmlModels.dll',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5QmlModels.dll',
+   'BINARY'),
+  ('Qt5Qml.dll',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\bin\\Qt5Qml.dll',
    'BINARY')],
  [],
  [],
@@ -957,73 +951,61 @@
    'D:\\Programming\\Yandex Lyceum\\1ый_проект '
    '_PYQT\\build\\programm\\base_library.zip',
    'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qscintilla.cpython-39.pyc',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qscintilla.cpython-39.pyc',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
+  ('PyQt5\\Qt5\\translations\\qtbase_en.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_uk.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_uk.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\qtcharts.py',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtcharts.py',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_en.qm',
    'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_fi.qm',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_fi.qm',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_ja.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ja.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebenginewidgets.cpython-39.pyc',
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtprintsupport.cpython-39.pyc',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebenginewidgets.cpython-39.pyc',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtprintsupport.cpython-39.pyc',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_it.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_it.qm',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_tr.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_tr.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\qtwebkit.py',
+  ('PyQt5\\uic\\widget-plugins\\qtquickwidgets.py',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtwebkit.py',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtquickwidgets.py',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\qtcharts.py',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtcharts.py',
    'DATA'),
   ('PyQt5\\uic\\widget-plugins\\qscintilla.py',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qscintilla.py',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+  ('PyQt5\\uic\\widget-plugins\\qtwebkit.py',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtwebkit.py',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_fr.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_fr.qm',
    'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\qaxcontainer.py',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qaxcontainer.py',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtquickwidgets.cpython-39.pyc',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtquickwidgets.cpython-39.pyc',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+  ('PyQt5\\Qt5\\translations\\qtbase_es.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_es.qm',
    'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebkit.cpython-39.pyc',
+  ('PyQt5\\Qt5\\translations\\qtbase_da.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\qtwebenginewidgets.py',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebkit.cpython-39.pyc',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtwebenginewidgets.py',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qaxcontainer.cpython-39.pyc',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qaxcontainer.cpython-39.pyc',
    'DATA'),
   ('PyQt5\\uic\\widget-plugins\\qtprintsupport.py',
    'd:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtprintsupport.py',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtcharts.cpython-39.pyc',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtcharts.cpython-39.pyc',
    'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_ca.qm',
    'D:\\Programming\\Python '
@@ -1033,33 +1015,69 @@
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_pl.qm',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_es.qm',
+  ('PyQt5\\Qt5\\translations\\qtbase_cs.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_es.qm',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_cs.qm',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_fr.qm',
+  ('PyQt5\\Qt5\\translations\\qtbase_tr.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_fr.qm',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_tr.qm',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_en.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_en.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qaxcontainer.cpython-39.pyc',
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebenginewidgets.cpython-39.pyc',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qaxcontainer.cpython-39.pyc',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebenginewidgets.cpython-39.pyc',
    'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtcharts.cpython-39.pyc',
+  ('PyQt5\\uic\\widget-plugins\\qaxcontainer.py',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtcharts.cpython-39.pyc',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qaxcontainer.py',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ko.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ko.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_it.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ja.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ja.qm',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebkit.cpython-39.pyc',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtwebkit.cpython-39.pyc',
+   'DATA'),
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtquickwidgets.cpython-39.pyc',
+   'd:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtquickwidgets.cpython-39.pyc',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm',
    'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_he.qm',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_he.qm',
    'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_bg.qm',
+   'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_de.qm',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_lv.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_lv.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_hu.qm',
+   'DATA'),
+  ('PyQt5\\Qt5\\translations\\qtbase_ar.qm',
+   'D:\\Programming\\Python '
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ar.qm',
    'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_sk.qm',
    'D:\\Programming\\Python '
@@ -1069,40 +1087,16 @@
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_gd.qm',
    'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\qtquickwidgets.py',
+  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qscintilla.cpython-39.pyc',
    'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtquickwidgets.py',
+   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qscintilla.cpython-39.pyc',
    'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_da.qm',
+  ('PyQt5\\Qt5\\translations\\qtbase_uk.qm',
    'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_da.qm',
+   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_uk.qm',
    'DATA'),
   ('PyQt5\\Qt5\\translations\\qtbase_ru.qm',
    'D:\\Programming\\Python '
    '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ru.qm',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_cs.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_cs.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\qtwebenginewidgets.py',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\qtwebenginewidgets.py',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_lv.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_lv.qm',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_ko.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ko.qm',
-   'DATA'),
-  ('PyQt5\\Qt5\\translations\\qtbase_ar.qm',
-   'D:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\Qt5\\translations\\qtbase_ar.qm',
-   'DATA'),
-  ('PyQt5\\uic\\widget-plugins\\__pycache__\\qtprintsupport.cpython-39.pyc',
-   'd:\\Programming\\Python '
-   '3.9.6\\lib\\site-packages\\PyQt5\\uic\\widget-plugins\\__pycache__\\qtprintsupport.cpython-39.pyc',
    'DATA')],
  [])

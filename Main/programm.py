@@ -92,12 +92,15 @@ class MainWindow(QMainWindow):
     def show_login_window(self):  # открытие и настройка окна входа и регистрации
         self.login_w = Login(self.usersAll, self.main_w)
         self.login_w.setWindowModality(Qt.ApplicationModal)
+        self.login_w.setWindowTitle('Вход')
+
         self.login_w.show()
 
     def show_favorites_olymps_window(self):  # открытие и настройка окна избранных олимпиад
         self.fav_olymps_w = FavoritesOlymps(self.usersAll, self.main_w,
                                             self.main_w.current_user, self.program)
         self.fav_olymps_w.setWindowModality(Qt.ApplicationModal)
+        self.fav_olymps_w.setWindowTitle('Любимые олимпиады')
         self.fav_olymps_w.show()
 
     def passed_olymp(self, olympiad, win):  # настройка для прошедших олимпиад

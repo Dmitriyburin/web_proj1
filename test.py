@@ -1,4 +1,6 @@
-import datetime
+from ui_files import new_olymp_with_subject
 
-a = dict(sorted([(2, 'ghbd'), (1, 'fgdg')]))
-print(a)
+
+class CreateOlympWithSubject(new_olymp_with_subject.NewOlympSubject):
+    def __init__(self):
+        print(self.subjectEdit)

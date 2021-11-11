@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QFrame, QMessageBox
 from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QWidget
 from PyQt5.QtCore import QCoreApplication, QProcess
 from PyQt5.QtGui import QPixmap
+
 from classes import *
 
 
@@ -156,7 +157,7 @@ class MyWidget(QMainWindow):
 
     def menu_login(self):  # настройка основного меню comboBox
         command = self.comboBox.currentText()
-        if command == 'Выйти':
+        if command == 'Выйти из аккаунта':
             self.restart()
         elif command == 'Удалить аккаунт':
             message = QMessageBox.warning(self, 'Осторожно', 'Вы уверены, '

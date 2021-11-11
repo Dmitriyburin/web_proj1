@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="Logo">
+    <file>graduation-cap.png</file>
+    <file>school-bag.png</file>
+    <file>graduation-hat.png</file>
+  </qresource>
+</RCC>

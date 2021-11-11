@@ -2,7 +2,7 @@ import webbrowser
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QDesktopWidget, QMessageBox
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QDate
 
 from classes import *
 
@@ -12,7 +12,6 @@ class MyOlymp(QMainWindow):
                  is_admin, usersAll: UsersAll):
         super().__init__()
         uic.loadUi('../ui_files/view_olymp.ui', self)
-        self.setFixedSize(self.size())
 
         self.olympiad = olymp
         self.olympsAll = olympsAll
@@ -43,6 +42,7 @@ class MyOlymp(QMainWindow):
                 self.favoritesButton.hide()
         elif self.is_admin:
             self.setGeometry(100, 60, 457, 406)
+        self.setFixedSize(self.size())
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
@@ -107,7 +107,7 @@ class MyOlymp(QMainWindow):
         print(self.main_w.current_user.favorites_olymps_dict)
         self.close()
 
-    def open_link(self):
+    def open_link(self):  # открытие ссылки в веббраузере
         webbrowser.get(using='windows-default').open_new_tab(self.olympiad.link)
 
 
@@ -128,6 +128,11 @@ class ChangeOlymp(QMainWindow):
         self.titleEdit.setText(self.olympiad.title)
         self.classEdit.setValue(int(self.olympiad.sch_class))
         self.dateEdit.setDate(self.olympiad.date)
+        self.dateEdit.setCalendarPopup(True)
+        self.dateEdit.setMinimumDate(QDate.currentDate())
+        self.classEdit.setMinimum(1)
+        self.classEdit.setMaximum(11)
+
         self.linkEdit.setText(self.olympiad.link)
         self.descrPlainEdit.setPlainText(self.olympiad.des)
         self.durPlainEdit.setPlainText(str(self.olympiad.dur))
