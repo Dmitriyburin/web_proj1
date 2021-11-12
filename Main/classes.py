@@ -228,6 +228,8 @@ class UsersAll:
     def delete_olymp_db(self, con, user: UserRegistered):
         try:
             with con.cursor() as cursor:
+                cursor.execute('DELETE FROM participations WHERE id_user = "{}"'.format(
+                    user.id))
                 cursor.execute('DELETE FROM users WHERE id = "{}"'.format(user.id))
                 print('\nУДАЛЕНО\n')
         finally:

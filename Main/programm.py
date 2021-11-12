@@ -4,6 +4,7 @@ import datetime
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFrame
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtCore import Qt, QCoreApplication
+from PyQt5.QtGui import QIcon
 
 from Main_window import MyWidget
 from ViewOlympWindow import MyOlymp
@@ -27,7 +28,7 @@ class MainWindow(QMainWindow):
 
     def show_main_window(self):  # открытие и настройка основного окна
         self.main_w = MyWidget(self.olympiadsAll, self, self.usersAll)
-        self.main_w.setWindowTitle('Все олимпиады')
+        self.main_w.setWindowTitle('   Все олимпиады')
         self.main_w.show()
         self.main_w.addButton.clicked.connect(self.show_create_olymp_window_with_subj)
         self.main_w.loginButton.clicked.connect(self.show_login_window)
@@ -114,7 +115,7 @@ def except_hook(cls, exception, traceback):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-
+    app.setWindowIcon(QIcon('../Images/icon.png'))
     print("[PID]:", QCoreApplication.applicationPid())
 
     window = MainWindow()
