@@ -165,7 +165,7 @@ class MyWidget(QMainWindow):
                                           QMessageBox.Yes | QMessageBox.No)
             if message == QMessageBox.Yes:
                 self.delete_user()
-                self.restart()
+                self.close()
         elif command == 'Избранные олимпиады':
             self.program.show_favorites_olymps_window()
 

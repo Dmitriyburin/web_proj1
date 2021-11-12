@@ -231,6 +231,7 @@ class UsersAll:
                 cursor.execute('DELETE FROM participations WHERE id_user = "{}"'.format(
                     user.id))
                 cursor.execute('DELETE FROM users WHERE id = "{}"'.format(user.id))
+                print(user.id)
                 print('\nУДАЛЕНО\n')
         finally:
             con.commit()
