@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<script type="text/javascript" src="../static//js//main.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Олимпиадник</span>
+      </a>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        
+        <li><a href="#" class="nav-link px-2 link-secondary">Основная</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Избранные</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-3 fixe">
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3>Олимпиады</h3>
+                    </div>
+                    <ul class="list-unstyled components nav-subjects">
+                        <li class="nav-subj active" onclick="location.href='/subjects/all';" >
+                            <a href='/subjects/all' class='nav-a'>Все предметы</a>
+                        </li>
+                        <li class="nav-subj" onclick="location.href='/subjects/Математика';" >
+                            <a href='/subjects/Математика' class='nav-a'>Математика</a>
+                        </li>
+                        <li class="nav-subj" onclick="location.href='/subjects/Русский язык';">
+                            <a href='/subjects/Русский язык' class='nav-a'>Русский язык</a>
+                        </li> 
+                        <li class="nav-subj" onclick="location.href='/subjects/Информатика';">
+                            <a href='/subjects/Информатика' class='nav-a'>Информатика</a>
+                        </li>
+                        <li class="nav-subj" onclick="location.href='/subjects/Физика';">
+                            <a href='/subjects/Физика' class='nav-a'>Физика</a>
+                        </li>
+                        <li class="nav-subj" onclick="location.href='/subjects/Химия';">
+                            <a href='/subjects/Химия' class='nav-a'>Химия</a>
+                        </li>
+                        <li class="nav-subj" onclick="location.href='/subjects/Биология';">
+                            <a href='/subjects/Биология' class='nav-a'>Биология</a>
+                        </li>
+                    </ul>
+                </nav>
+                <form action="" method="post" name="class" novalidate>
+                    <div>
+                        {{ class_form.csrf_token }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <!-- <input type="number" class="form-control" placeholder="Номер класса" aria-label="Username" aria-describedby="basic-addon1"> -->
+
+                        {% for field in class_form if field.name != 'csrf_token' and field.name != 'submit' %}
+                                {{ field(class="form-control", type="number", placeholder="Номер класса") }}
+                                
+                        {% endfor %}
+                        {{ class_form.submit(class='btn btn-outline-secondary btn-main')}}
+                        
+                        
+
+                    </div>
+                </form>
+            
+            </div>
+            {% block main_content %}{% endblock %}
+
+        </div>
+    </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+ {% extends "base_main.html" %}
+
+{% block main_content %}
+    <div class="col main-content">
+        {% for subject, olymps in olymps_all_dict.items() %}
+            {% for olymp in olymps %}
+            <div class="card main-card">
+                <div class="card-body">
+                <h6 class="card-subtitle mb-1 text-muted">{{ subject }}</h6>
+                <h5 class="card-title">{{ olymp.title }}</h5>
+                <p class="card-text">{{ olymp.des}}</p>
+                <a href="http://127.0.0.1:8080/olympiad/{{ olymp.id }}" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div> 
+{% endblock %}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a8b77281-e972-41bd-ad61-9dee2eeb4d14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/1ый_проект _PYQT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/1ый_проект _PYQT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation/Presentation.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/free-icon-feather-67944.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/graduation-cap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/logo.qrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/school-bag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Изображения.qrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-19 161926.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-19 162134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-19 162204.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-19 162222.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-19 162353.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-26 195401.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Images/Снимок экрана 2021-10-29 231612.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/CreateOlympWindow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/FavoritesOlymps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/LoginWindow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/Main_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/ViewOlympWindow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/classes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/Main/programm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/Analysis-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/EXE-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/PKG-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/PYZ-00.pyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/PYZ-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/Tree-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/Tree-01.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/Tree-02.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/programm.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/programm.pkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/warn-programm.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/build/programm/xref-programm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/dist/programm.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/programm.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/favorites_olymp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/favorites_olymp.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/login.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/main.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/new_olymp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/new_olymp.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/new_olymp_with_subject.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/new_olymp_with_subject.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/programm.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/registration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/registration.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/view_olymp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programm/ui_files/view_olymp.ui" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="25LALBwIVryMxnVwvFT1vAWRzrc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Main 2 year/31 WEB. Введение во flask. Обработка HTML-форм" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\Yandex Lyceum\1ый_проект _PYQT\program_flask\additional" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.application">
+    <configuration name="application" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="1ый_проект _PYQT" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/program_flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program_flask/application.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="programm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="1ый_проект _PYQT" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/program_pyqt/programm/Main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program_pyqt/programm/Main/programm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.application" />
+        <item itemvalue="Python.programm" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8b77281-e972-41bd-ad61-9dee2eeb4d14" name="Changes" comment="" />
+      <created>1645295934803</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645295934803</updated>
+    </task>
+    <servers />
+  </component>
+</project>

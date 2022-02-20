@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d04ee527-d368-4917-9aa9-3ad87967b40e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../build/programm/Analysis-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/EXE-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/PKG-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/PYZ-00.pyz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/PYZ-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/Tree-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/Tree-01.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/Tree-02.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/base_library.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/programm.exe.manifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/programm.pkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/warn-programm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build/programm/xref-programm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programm.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programm/Main/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programm/Main/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/Main/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/Main/classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/programm.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/programm.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/warn-programm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/warn-programm.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/build/programm/xref-programm.html" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/build/programm/xref-programm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/dist/programm.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/dist/programm.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programm/programm.spec" beforeDir="false" afterPath="$PROJECT_DIR$/../programm/programm.spec" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="255y1WPyvsy7AIDIM4i9yaE6FcZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Main 2 year/Test" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d04ee527-d368-4917-9aa9-3ad87967b40e" name="Changes" comment="" />
+      <created>1644831026474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644831026474</updated>
+    </task>
+    <servers />
+  </component>
+</project>
